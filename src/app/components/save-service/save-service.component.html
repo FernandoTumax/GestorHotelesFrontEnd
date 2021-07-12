@@ -1,0 +1,20 @@
+<body class="text-center" [@fadeIn]>
+    <form class="form-signin" #saveService="ngForm" (ngSubmit)="onSubmit(saveService)">
+        <img class="mb-1" width="325" height="325" src="../../../assets/img/servicio.png" alt="Imagen de una agenda">
+        <h1 class="h3 mb-3 font-weight-normal">Register your Services</h1>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputName">Name</label>
+            <input [(ngModel)]="service.nombreServicio" #nombreServicio="ngModel" name="nombreServicio" class="form-control" id="inputServicio" type="text" placeholder="your name of service" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputPrecio">Price</label>
+            <input [(ngModel)]="service.precio" #precio="ngModel" name="precio" class="form-control" id="inputPrecio" type="number" placeholder="your price" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputDescripcion">Description</label>
+            <input [(ngModel)]="service.descripcion" #descripcion="ngModel" name="descripcion" class="form-control" id="inputDireccion" type="text" placeholder="your Description" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="!saveService.form.valid">Register</button>
+        <a type="button" class="btn btn-danger mt-4 ms-4" (click)="cancelar()">cancelar</a>
+    </form>
+</body>

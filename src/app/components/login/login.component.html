@@ -1,0 +1,19 @@
+<body class="text-center" [@fadeIn]>
+    <form class="form-signin" #login="ngForm" (ngSubmit)="onSubmit(login)">
+        <img class="mb-1" width="325" height="325" src="../../../assets/img/logo.png" alt="Imagen de una agenda">
+        <h1 class="h3 mb-3 font-weight-normal">Login your account</h1>
+        <div class="form-row">
+            <div class="form-group">
+                <label class="h4 mt-2 mb-3 font-weight-normal" for="inputUsername">Username</label>
+                <input [(ngModel)]="user.username" #username="ngModel" name="username" class="form-control" type="text" id="inputUsername" placeholder="username" required>
+            </div>
+            <div class="from-group mb-2">
+                <label class="h4 mt-2 mb-3 font-weight-normal" for="inputPassword">Password</label>
+                <input [(ngModel)]="user.password" #password="ngModel" name="password" class="form-control" type="password" id="inputPassword" placeholder="password" required>
+                
+            </div>
+        </div>
+        <button type="button" class="btn btn-primary" (click)=" onSubmit(login)">Sign in</button>
+    </form>
+</body>
+

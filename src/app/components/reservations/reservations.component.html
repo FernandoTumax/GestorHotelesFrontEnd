@@ -1,0 +1,39 @@
+<body [@fadeIn]>
+    <div class="card text-center mt-lg-5 usuario">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="true" routerLink="/home-client" routerLinkActivate="active">Home</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body ms-auto me-auto">
+          <img class="mb-3" width="200" height="200" src="../../../assets/img/reservacion.png" alt="Imagen de perfil por defecto" />
+          <h5 class="card-title card-header tarjetaTitulo">Nombre del Cliente</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto">
+            <div class="card-body">
+                <p class="card-text">{{clients.nombreCliente}}, {{clients.apellidoCliente}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Hotel hospedado</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto">
+            <div class="card-body ">
+                <p class="card-text">{{hotels.nombreHotel}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Tus habitaciones</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto" *ngFor="let room of rooms; let i=index">
+            <div class="card-body ">
+                <p class="card-text">{{room.codigoHabitacion}} - ${{room.precio}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Tus servicios</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto" *ngFor="let service of services">
+            <div class="card-body ">
+                <p class="card-text">{{service.nombreServicio}} - ${{service.precio}}</p>
+            </div>
+          </div>
+          <button type="button" class="btn btn-danger botonEliminar" (click)="cancelarReservacion()">Cancelar reservacion</button>
+        </div>
+      </div>
+</body>

@@ -1,0 +1,51 @@
+<body [@fadeIn]>
+    <div class="card text-center mt-lg-5 usuario">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="true"  routerLink="/hotel" routerLinkActivate="active">Hotel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/room" routerLinkActivate="active" *ngIf="user.rol === 'ROL_CLIENT'">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/event" routerLinkActivate="active" *ngIf="user.rol === 'ROL_CLIENT'">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-reservation-admin" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Reservaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/room" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/list-user-admin" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Clientes</a>
+            </li>
+          </ul>
+        </div>
+        <div class="card-body ms-auto me-auto">
+          <img class="mb-3" width="200" height="200" src="../../../assets/img/logo.png" alt="Imagen de perfil por defecto" />
+          <h5 class="card-title card-header tarjetaTitulo">Nombre del hotel</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto ">
+            <div class="card-body">
+                <p class="card-text">{{hotel.name}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Direccion</h5>
+          <div class="card mb-4 mt-4 ms-5 tarjetaTexto">
+            <div class="card-body ">
+                <p class="card-text">{{hotel.direccion}}</p>
+            </div>
+          </div>
+          <h5 class="card-title card-header tarjetaTitulo">Solicitud</h5>
+          <div class="card mt-4 mb-4 ms-5 tarjetaTexto">
+            <div class="card-body ">
+                <p class="card-text">estas son las solicitudes del hotel: <button class="btn btn-danger">{{hotel.solicitud}}</button></p>
+            </div>
+          </div>
+          <button type="button" class="btn btn-danger botonEliminar" (click)="reservation()" *ngIf="user.rol === 'ROL_CLIENT'" >Realizar reservacion</button>
+          <button type="button" class="btn btn-primary me-1" *ngIf="user.rol === 'ROL_ADMINHOTEL'" (click)="saveRoom()" >Agregar Habitaciones</button> 
+          <button type="button" class="btn btn-secondary me-1" *ngIf="user.rol === 'ROL_ADMINHOTEL'" (click)="saveService()" >Agregar Servicios</button>       
+          <button type="button" class="btn btn-danger ms-auto " *ngIf="user.rol === 'ROL_ADMINHOTEL'" (click)="saveEvent()" >Agregar Eventos</button> 
+      </div>
+    </div>
+</body>

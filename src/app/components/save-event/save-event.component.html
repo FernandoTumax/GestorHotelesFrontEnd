@@ -1,0 +1,24 @@
+<body class="text-center" [@fadeIn]>
+    <form class="form-signin" #saveEvent="ngForm" (ngSubmit)="onSubmit(saveEvent)">
+        <img class="mb-1" width="325" height="325" src="../../../assets/img/evento.png" alt="Imagen de una agenda">
+        <h1 class="h3 mb-3 font-weight-normal">Register your Event</h1>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputTipoEvento">Type of event</label>
+            <input [(ngModel)]="event.tipoEvento" name="tipoEvento" class="form-control" id="inputTipoEvento" type="text" placeholder="your name" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputFecha">Date for event</label>
+            <input [(ngModel)]="event.fecha" name="fecha" class="form-control" id="fecha" type="date" placeholder="your address" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputFecha">schedule for event</label>
+            <input [(ngModel)]="event.horario" name="horario" class="form-control" id="horario" type="time" placeholder="your schedule" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputFecha">Description for event</label>
+            <input [(ngModel)]="event.descripcion" name="descripcion" class="form-control" id="descripcion" type="text" placeholder="your description" required>
+        </div>
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="!saveEvent.form.valid">Register</button>
+        <a type="button" class="btn btn-danger mt-4 ms-4" (click)="cancelar()">cancelar</a>
+    </form>
+</body>

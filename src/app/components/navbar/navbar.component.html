@@ -1,0 +1,44 @@
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Navegator Hotel</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav mr-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token == null" routerLink="/home" routerLinkActivate="active">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token == null" routerLink="/register" routerLinkActivate="active">Register</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token == null" routerLink="/login" routerLinkActivate="active">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token != null && user.rol === 'ROL_CLIENT'" routerLink="/home-client" routerLinkActivate="active">Hotels</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token != null && user.rol === 'ROL_ADMINAPP'" routerLink="/save-hotel" routerLinkActivate="active">create Hotel</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token != null && user.rol === 'ROL_ADMINAPP'" routerLink="/home-admin-app" routerLinkActivate="active">Home Admin App</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" *ngIf="token != null && user.rol === 'ROL_ADMINHOTEL'" routerLink="/home-admin-hotel" routerLinkActivate="active">Home Admin Hotel</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" *ngIf="token != null" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              More options
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+              <li><a class="dropdown-item" routerLink="/user" routerLinkActivate="active">Account and Edit</a></li>
+              <li *ngIf="token != null && user.rol ==='ROL_ADMINAPP'"><a class="dropdown-item" routerLink="/save-user" routerLinkActivate="active">Save Users</a></li>
+              <li><hr class="dropdown-divider"></li>
+              <li><a class="dropdown-item" (click)="logOut()">Log out</a></li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>

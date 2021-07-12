@@ -1,0 +1,55 @@
+body{
+    height: 100% !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -ms-flex-align: center !important;
+    align-items: center !important;
+    padding-top: 40px !important;
+    padding-bottom: 15% !important;
+    background-color: #f5f5f5 !important;
+}
+
+.bd-placeholder-img{
+    font-size: 1.1rem !important;
+    text-anchor: middle !important;
+    -webkit-user-select: none !important;
+    -moz-user-select: none !important;
+    user-select: none !important;
+}
+
+@media (min-width: 768px){
+    .bd-placeholder-img-lg{
+        font-size: 3rem !important;
+    }
+}
+
+.form-signin{
+    width: 100% !important;
+    max-width: 640px !important;
+    padding: 15px !important;
+    margin: auto !important;
+
+}
+
+.form-control{
+    position: relative !important;
+    box-sizing: border-box !important;
+    height: auto !important;
+    padding: 10px !important;
+    font-size: 15px !important;
+}
+
+.bloqueInfo{
+    margin: 5px;
+    max-width: 466px !important;
+}
+
+.botonEscogerHabitacion{
+    width: 287px;
+    margin-left: -12px;
+}
+
+.esconderId{
+    display: none;
+    visibility: hidden;
+}

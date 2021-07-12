@@ -1,0 +1,62 @@
+<body [@fadeIn]>
+    <div class="card text-center mt-lg-5 usuario">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" aria-current="true"  routerLink="/hotel" routerLinkActivate="active" *ngIf="user.rol === 'ROL_CLIENT'">Hotel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" routerLink="/room" routerLinkActivate="active" *ngIf="user.rol === 'ROL_CLIENT'">Habitaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/event" routerLinkActivate="active" *ngIf="user.rol === 'ROL_CLIENT'">Eventos</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-reservation-admin" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Reservaciones</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/hotel" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Hotel</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link"  routerLink="/list-user-admin" routerLinkActivate="active" *ngIf="user.rol === 'ROL_ADMINHOTEL'">Clientes</a>
+            </li>
+          </ul>
+        </div>
+        <p class="h2 mt-3 mb-3 text-decoration-underline">Habitaciones Disponibles</p>
+        <div class="card-body"  *ngFor="let room of rooms">
+          <div class="card mb-1 row-cols-1 bloqueInfo" style="max-width: 540px;" *ngIf="room.disponibilidad === 'disponible'">
+            <div class="roomDisp">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img class="mt-4 ms-3 me-auto" width="135" height="135" src="../../../assets/img/room.png" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body col">
+                    <h5 class="card-title">{{room.codigoHabitacion}}</h5>
+                    <p class="card-text mt-1" id="username">{{room.descripcion}}</p>
+                    <p class="card-text"><small class="text-muted">{{room.disponibilidad}}</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+      </div>
+      <p class="h2 mt-3 mb-3 text-decoration-underline" >Habitaciones Ocupadas</p>
+      <div class="card-body " *ngFor="let room of rooms">
+          <div class="card mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;" *ngIf="room.disponibilidad === 'ocupado'">
+              <div class="row g-0 roomOcupado">
+                <div class="col-md-4">
+                  <img class="mt-4 ms-5 me-auto" width="135" height="135" src="../../../assets/img/room.png" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body">
+                    <h5 class="card-title textoClaro">{{room.codigoHabitacion}}</h5>
+                    <p class="card-text mt-1 textoClaro" id="username">{{room.descripcion}}</p>
+                    <p class="card-text textoClaro"><small class="text-muted textoClaro">{{room.disponibilidad}}</small></p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</body>

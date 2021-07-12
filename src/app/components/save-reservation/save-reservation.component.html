@@ -1,0 +1,56 @@
+<body class="text-center" [@fadeIn]>
+    <form class="form-signin" #saveReservation="ngForm" (ngSubmit)="onSubmit()">
+        <img class="mb-1" width="325" height="325" src="../../../assets/img/reservacion.png" alt="Imagen de una agenda">
+        <h1 class="h3 mb-3 font-weight-normal">Your reservation for: </h1>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputFechaIngreso">Date of begin</label>
+            <input [(ngModel)]="reservation.fechaIngreso" name="fechaIngreso" class="form-control" id="inputFechaIngreso" type="date" placeholder="your date of begin" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputFechaSalida">Date of End</label>
+            <input [(ngModel)]="reservation.fechaSalida" name="fechaSalida" class="form-control" id="inputFechaSalida" type="date" placeholder="your date of End" required>
+        </div>
+        <div class="form-group">
+            <label class="h4 mt-2 mb-3 font-weight-normal" for="inputNumeroTarjeta">Your credit card</label>
+            <input [(ngModel)]="reservation.numeroTarjeta" name="numeroTarjeta" class="form-control" id="inputNumeroTarjeta" type="number" placeholder="your credit card" required>
+        </div>
+        <label class="h4 mt-2 mb-1 font-weight-normal">Choose a room</label>
+        <div class="card ms-auto me-auto mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;" *ngFor="let room of rooms; let i = index;">
+            <div class="row g-0" *ngIf="room.disponibilidad == 'disponible'">
+              <div class="col-md-4">
+                <img class="mt-3 ms-4 me-4" width="175" height="175" src="../../../assets/img/room.png" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{room.codigoHabitacion}}</h5>
+                  <p class="card-text mt-1">{{room.tipoHabitacion}}</p>
+                  <p class="card-text mt-1">{{room.descripcion}}</p>
+                  <p class="card-text mt-1 mb-1" id="precioHabitacion">{{room.precio}}</p>
+                  <label class="esconderId" id="idHabitacion">{{room._id}}</label>
+                  <p class="card-text"><small class="text-muted">{{room.disponibilidad}}</small></p>
+                  <button type="button" class="btn btn-primary botonAdminApp" (click)="clickHabitacion(room)">Select room</button>
+                </div>
+              </div>
+            </div>
+          </div>  
+          <label class="h4 mt-2 mb-1 font-weight-normal">Choose a service</label>
+          <div class="card ms-auto me-auto mb-3 row-cols-1 bloqueInfoService" style="max-width: 540px;" *ngFor="let service of services; let i = index;" [ngSwitch]="i">
+            <div class="row g-0">
+              <div class="col-md-4">
+                <img class="mt-3 ms-4 me-4" width="175" height="175" src="../../../assets/img/servicio.png" alt="...">
+              </div>
+              <div class="col-md-8">
+                <div class="card-body">
+                  <h5 class="card-title">{{service.nombreServicio}}</h5>
+                  <p class="card-text mt-1">{{service.descripcion}}</p>
+                  <label class="esconderId" id="idServicio">{{service._id}}</label>
+                  <p class="card-text"><small class="text-muted" id="precioServicio">{{service.precio}}</small></p>
+                  <button type="button" class="btn btn-primary botonAdminApp" (click)="clickServicio(service)">Select service</button>
+                </div>
+              </div>
+            </div>
+          </div>            
+        <button type="submit" class="btn btn-primary mt-4" [disabled]="!saveReservation.form.valid">create reservation</button>
+    </form>
+    <button type="submit" class="btn btn-danger mt-4" (click)="cancelar()">Cancelar</button>
+</body>

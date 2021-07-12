@@ -1,0 +1,33 @@
+<body [@fadeIn]>
+    <div class="card text-center mt-5 usuario">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/home-admin-app" routerLinkActivate="active" aria-current="true" href="#">Users</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active">statistics</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" routerLink="/list-hotel-admin" routerLinkActivate="active" tabindex="-1" aria-disabled="true">Registers</a>
+            </li>
+          </ul>
+        </div>
+        <p class="h2 mt-3 mb-3 text-decoration-underline">Estadistica de solicitudes por hotel</p>
+        <div class="card-body">
+            <div>
+                <div style="display: block">
+                  <canvas baseChart
+                    [datasets]="barChartData"
+                    [labels]="barChartLabels"
+                    [options]="barChartOptions"
+                    [legend]="barChartLegend"
+                    [chartType]="barChartType"
+                    [colors]="chartColors">
+                  </canvas>
+                </div>
+              </div>
+            </div>
+        </div>
+</body>
+    

@@ -1,0 +1,36 @@
+<body [@fadeIn]>
+    <div class="card text-center mt-lg-5 usuario">
+        <div class="card-header">
+          <ul class="nav nav-tabs card-header-tabs">
+            <li class="nav-item">
+                <a class="nav-link" aria-current="true"  routerLink="/hotel" routerLinkActivate="active">Hotel</a>
+              </li>
+            <li class="nav-item">
+                <a class="nav-link" routerLink="/list-reservation-admin" routerLinkActivate="active">Reservaciones</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link"  routerLink="/room" routerLinkActivate="active">Habitaciones</a>
+              </li>
+          </ul>
+        </div>
+        <p class="h2 mt-3 mb-3 text-decoration-underline">Clientes</p>
+        <form class="d-flex">
+          <input [(ngModel)]="search" name="search" class="form-control me-3 ms-3 mt-3" type="search" placeholder="Search" aria-label="Search">
+        </form>
+        <div class="card-body ms-auto me-auto" *ngFor="let user of clientes | search:search">
+          <div class="card mb-3 row-cols-1 bloqueInfo" style="max-width: 540px;">
+              <div class="row g-0">
+                <div class="col-md-4">
+                  <img class="mt-4 mb-4 ms-auto me-auto" width="135" height="135" src="../../../assets/img/perfil.png" alt="...">
+                </div>
+                <div class="col-md-8">
+                  <div class="card-body mt-4 mb-4 me-auto ms-auto">
+                    <h5 class="card-title">{{user.nombreCliente}}, {{user.apellidoCliente}}</h5>
+                    <p class="card-text mt-5" id="username">{{user.emailCliente}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+      </div>
+    </div>
+</body>

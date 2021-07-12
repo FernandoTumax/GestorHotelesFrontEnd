@@ -1,0 +1,37 @@
+img{
+    margin-left: 20px;
+}
+
+.botonAdminApp{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+.usuario{
+    margin-left: 150px;
+    margin-right: 150px;
+}
+
+.botonEliminar{
+    margin-right: 25px;
+    margin-left: 25px;
+}
+
+.tarjetaTitulo{
+    width: 450px;
+}
+
+.tarjetaTexto{
+    width: 350px;
+}
+.bloqueInfo{
+    display: inline-block;
+    margin: 30px !important;
+    width: 550px;
+    height: 205px;
+}
+
+#idHotel{
+    visibility: hidden;
+    display: none;
+}

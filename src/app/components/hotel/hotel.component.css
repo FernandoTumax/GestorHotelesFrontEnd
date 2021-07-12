@@ -1,0 +1,17 @@
+.usuario{
+    margin-left: 185px;
+    margin-right: 185px;
+}
+
+.botonEliminar{
+    margin-right: 75px;
+    margin-left: 75px;
+}
+
+.tarjetaTitulo{
+    width: 450px;
+}
+
+.tarjetaTexto{
+    width: 350px;
+}
